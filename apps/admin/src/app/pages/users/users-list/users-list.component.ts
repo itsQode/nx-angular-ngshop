@@ -2,58 +2,58 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { take } from 'rxjs';
 
-import { IProduct, ProductsService } from '@itscode/products';
 import { ConfirmationService, MessageService } from 'primeng/api';
+import * as countriesLib from 'i18n-iso-countries';
+
+import { UsersService } from '@itscode/users';
+import { IUser } from '@itscode/users';
+
+declare const require: any;
 
 @Component({
-    selector: 'admin-product-list',
-    templateUrl: './products-list.component.html',
+    selector: 'admin-users-list',
+    templateUrl: './users-list.component.html',
     styles: []
 })
-export class ProductsListComponent implements OnInit {
-    products: IProduct[] = [];
+export class UsersListComponent implements OnInit {
+    users: IUser[] = [];
+
     constructor(
-        private productsService: ProductsService,
         private router: Router,
+        private usersService: UsersService,
         private confirmationService: ConfirmationService,
         private messageService: MessageService
     ) {}
 
     ngOnInit(): void {
-        this._getProducts();
+        this._getUsers();
     }
 
-    private _getProducts() {
-        this.productsService
-            .getProducts()
+    private _getUsers() {
+        this.usersService
+            .getUsers()
             .pipe(take(1))
             .subscribe({
                 next: (res) => {
-                    if (res.body) {
-                        this.products = res.body;
-                    }
+                    if (res.body) this.users = res.body;
                 }
             });
     }
 
-    onUpdateProduct(productId: string) {
-        this.router.navigateByUrl(`products/form/${productId}`);
-    }
-    onDeleteProducts(productId: string) {
-        console.log(productId);
+    onDeleteUser(userId: string) {
         this.confirmationService.confirm({
-            message: 'Do you want to delete this category?',
-            header: 'Delete Category',
+            header: 'Delete User',
+            message: 'Are you sure that you want to delete this user?',
             icon: 'pi pi-exclamation-triangle',
             accept: () => {
-                this.productsService.deleteProduct(productId).subscribe({
+                this.usersService.deleteUser(userId).subscribe({
                     next: (res) => {
                         this.messageService.add({
                             severity: 'success',
-                            summary: 'Success',
+                            summary: 'success',
                             detail: `${res.body}`
                         });
-                        this._getProducts();
+                        this._getUsers();
                     },
                     error: () => {
                         this.messageService.add({
@@ -64,9 +64,16 @@ export class ProductsListComponent implements OnInit {
                     }
                 });
             },
-            reject: () => {
-                return;
-            }
+            reject: () => {}
         });
+    }
+
+    onUpdateUser(userId: string) {
+        this.router.navigateByUrl(`users/form/${userId}`);
+    }
+
+    _getCountryName(code: string) {
+        countriesLib.registerLocale(require('i18n-iso-countries/langs/fa.json'));
+        return countriesLib.getName(code, 'fa');
     }
 }

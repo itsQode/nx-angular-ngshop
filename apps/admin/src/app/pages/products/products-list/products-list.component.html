@@ -40,6 +40,7 @@
                             <td>{{ product.dateCreated | date : 'short' }}</td>
                             <td>
                                 <p-button (onClick)="onDeleteProducts(product.id)" icon="pi pi-trash" styleClass="p-button-danger mr-2"></p-button>
+
                                 <p-button (onClick)="onUpdateProduct(product.id)" icon="pi pi-pencil" styleClass="p-button-success"></p-button>
                             </td>
                         </tr>
@@ -49,3 +50,4 @@
         </div>
     </p-card>
 </div>
+<p-confirmDialog [style]="{ width: '50vw' }" [baseZIndex]="10000" rejectButtonStyleClass="p-button-text"></p-confirmDialog>

@@ -5,6 +5,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { TagModule } from 'primeng/tag';
 import { CardModule } from 'primeng/card';
 import { TableModule } from 'primeng/table';
 import { ToastModule } from 'primeng/toast';
@@ -13,6 +14,7 @@ import { EditorModule } from 'primeng/editor';
 import { ToolbarModule } from 'primeng/toolbar';
 import { DropdownModule } from 'primeng/dropdown';
 import { InputTextModule } from 'primeng/inputtext';
+import { InputMaskModule } from 'primeng/inputmask';
 import { InputSwitchModule } from 'primeng/inputswitch';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { ColorPickerModule } from 'primeng/colorpicker';
@@ -33,7 +35,9 @@ const UX_MODULE = [
     DropdownModule,
     InputTextareaModule,
     InputSwitchModule,
-    EditorModule
+    EditorModule,
+    TagModule,
+    InputMaskModule
 ];
 
 import { AppComponent } from './app.component';
@@ -45,6 +49,8 @@ import { CategoriesListComponent } from './pages/categories/categories-list/cate
 import { CategoriesFormComponent } from './pages/categories/categories-form/categories-form.component';
 import { ProductsListComponent } from './pages/products/products-list/products-list.component';
 import { ProductsFormComponent } from './pages/products/products-form/products-form.component';
+import { UsersListComponent } from './pages/users/users-list/users-list.component';
+import { UsersFormComponent } from './pages/users/users-form/users-form.component';
 
 const routes: Routes = [
     {
@@ -79,6 +85,18 @@ const routes: Routes = [
             {
                 path: 'products/form/:id',
                 component: ProductsFormComponent
+            },
+            {
+                path: 'users',
+                component: UsersListComponent
+            },
+            {
+                path: 'users/form',
+                component: UsersFormComponent
+            },
+            {
+                path: 'users/form/:id',
+                component: UsersFormComponent
             }
         ]
     }
@@ -93,7 +111,9 @@ const routes: Routes = [
         CategoriesListComponent,
         CategoriesFormComponent,
         ProductsListComponent,
-        ProductsFormComponent
+        ProductsFormComponent,
+        UsersListComponent,
+        UsersFormComponent
     ],
     imports: [
         BrowserModule,

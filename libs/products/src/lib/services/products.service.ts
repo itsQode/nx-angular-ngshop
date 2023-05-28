@@ -30,7 +30,7 @@ export class ProductsService {
         return this.http.put<IRestPayload<IProduct>>(`${this.apiURLProducts}${productId}`, productData);
     }
 
-    // public deleteProduct(productId: string): Observable<IRestPayload<string>> {
-    //     return this.http.delete<IRestPayload<string>>(`${this.apiURLProducts}${productId}`);
-    // }
+    public deleteProduct(productId: string): Observable<IRestPayload<string>> {
+        return this.http.delete<IRestPayload<string>>(`${this.apiURLProducts}${productId}`);
+    }
 }
