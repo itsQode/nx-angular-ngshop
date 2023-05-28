@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { take } from 'rxjs';
 import { ConfirmationService, MessageService } from 'primeng/api';
 
-import { CategoriesService, Category } from '@itscode/products';
+import { CategoriesService, ICategory } from '@itscode/products';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
@@ -12,7 +12,7 @@ import { ActivatedRoute, Router } from '@angular/router';
     styles: []
 })
 export class CategoriesListComponent implements OnInit {
-    categories: Category[] = [];
+    categories: ICategory[] = [];
 
     constructor(
         private categoriesService: CategoriesService,

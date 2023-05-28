@@ -4,7 +4,7 @@ import { Location } from '@angular/common';
 
 import { MessageService } from 'primeng/api';
 
-import { CategoriesService, Category } from '@itscode/products';
+import { CategoriesService, ICategory } from '@itscode/products';
 import { timer, firstValueFrom, take } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 
@@ -67,7 +67,7 @@ export class CategoriesFormComponent implements OnInit {
 
         this.isSubmited = true;
 
-        const category: Category = {
+        const category: ICategory = {
             ...this.form.value,
             id: this.currentCategoryId
         };
@@ -76,7 +76,7 @@ export class CategoriesFormComponent implements OnInit {
         if (this.editMode) this._updateCategory(category);
     }
 
-    private _createCategory(category: Category) {
+    private _createCategory(category: ICategory) {
         this.categoriesService.createCategory(category).subscribe({
             next: () => {
                 this.messageService.add({ severity: 'success', summary: 'success', detail: 'Category is created!' });
@@ -91,7 +91,7 @@ export class CategoriesFormComponent implements OnInit {
         });
     }
 
-    private _updateCategory(category: Category) {
+    private _updateCategory(category: ICategory) {
         this.categoriesService.updateCategoryById(category).subscribe({
             next: () => {
                 this.messageService.add({ severity: 'success', summary: 'success', detail: `Category ${category.name} is updated!` });
