@@ -8,7 +8,7 @@ export interface IProduct {
     image?: string;
     images: string[];
     brand?: string;
-    price?: string;
+    price?: number;
     category?: ICategory;
     countInStock: number;
     rating: number;

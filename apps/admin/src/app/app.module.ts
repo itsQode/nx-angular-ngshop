@@ -13,6 +13,7 @@ import { ButtonModule } from 'primeng/button';
 import { EditorModule } from 'primeng/editor';
 import { ToolbarModule } from 'primeng/toolbar';
 import { DropdownModule } from 'primeng/dropdown';
+import { FieldsetModule } from 'primeng/fieldset';
 import { InputTextModule } from 'primeng/inputtext';
 import { InputMaskModule } from 'primeng/inputmask';
 import { InputSwitchModule } from 'primeng/inputswitch';
@@ -37,11 +38,11 @@ const UX_MODULE = [
     InputSwitchModule,
     EditorModule,
     TagModule,
-    InputMaskModule
+    InputMaskModule,
+    FieldsetModule
 ];
 
 import { AppComponent } from './app.component';
-import { CategoriesService } from '@itscode/products';
 import { ShellComponent } from './shared/shell/shell.component';
 import { SidebarComponent } from './shared/sidebar/sidebar.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
@@ -51,6 +52,8 @@ import { ProductsListComponent } from './pages/products/products-list/products-l
 import { ProductsFormComponent } from './pages/products/products-form/products-form.component';
 import { UsersListComponent } from './pages/users/users-list/users-list.component';
 import { UsersFormComponent } from './pages/users/users-form/users-form.component';
+import { OrdersListComponent } from './pages/orders/orders-list/orders-list.component';
+import { OrdersDetailComponent } from './pages/orders/orders-detail/orders-detail.component';
 
 const routes: Routes = [
     {
@@ -97,6 +100,14 @@ const routes: Routes = [
             {
                 path: 'users/form/:id',
                 component: UsersFormComponent
+            },
+            {
+                path: 'orders',
+                component: OrdersListComponent
+            },
+            {
+                path: 'orders/:id',
+                component: OrdersDetailComponent
             }
         ]
     }
@@ -113,7 +124,9 @@ const routes: Routes = [
         ProductsListComponent,
         ProductsFormComponent,
         UsersListComponent,
-        UsersFormComponent
+        UsersFormComponent,
+        OrdersListComponent,
+        OrdersDetailComponent
     ],
     imports: [
         BrowserModule,
@@ -124,7 +137,7 @@ const routes: Routes = [
         RouterModule.forRoot(routes, { initialNavigation: 'enabledBlocking' }),
         ...UX_MODULE
     ],
-    providers: [CategoriesService, MessageService, ConfirmationService],
+    providers: [MessageService, ConfirmationService],
     bootstrap: [AppComponent]
 })
 export class AppModule {}
