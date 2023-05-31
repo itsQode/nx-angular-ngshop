@@ -1,0 +1,40 @@
+<p-toast></p-toast>
+<div class="login-register">
+    <div class="login-register-panel">
+        <div class="grid">
+            <div class="col-6">
+                <img src="assets/images/login-photo.png" />
+            </div>
+            <div class="col-6 p-5">
+                <h3>Welcome!</h3>
+                <h2>Login Page</h2>
+                <form [formGroup]="loginFormGroup" (submit)="onSubmit()">
+                    <div class="grid mt-6">
+                        <div class="col-12">
+                            <div class="p-inputgroup">
+                                <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+                                <input formControlName="email" type="text" pInputText placeholder="Email" />
+                            </div>
+                            <small *ngIf="loginForm['email'].invalid && isSubmited" class="p-error">
+                                <span *ngIf="loginForm['email'].errors!['required']">email is required</span>
+                                <span *ngIf="loginForm['email'].errors!['email']">email is invalid!</span>
+                            </small>
+                        </div>
+                        <div class="col-12">
+                            <div class="p-inputgroup">
+                                <span class="p-inputgroup-addon"><i class="pi pi-lock"></i></span>
+                                <input formControlName="password" type="password" pInputText placeholder="Password" />
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <p-button styleClass="w-full" label="Submit" type="submit"></p-button>
+                        </div>
+                        <div class="col">
+                            <small class="p-error" *ngIf="authError">{{ authMessage }}</small>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
