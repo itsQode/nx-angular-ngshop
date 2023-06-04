@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
     selector: 'ui-banner',
-    template: ` <h2 class="color-red">Banner Works !</h2> `
+    templateUrl: './banner.component.html',
+    styles: []
 })
 export class BannerComponent implements OnInit {
     constructor() {}

@@ -4,28 +4,21 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AccordionModule } from 'primeng/accordion';
 
-import { UiModule } from '@itscode/ui';
 import { AppComponent } from './app.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { ProductListComponent } from './pages/product-list/product-list.component';
-import { RouterModule, Routes } from '@angular/router';
 import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
+import { AppRoutingModule } from './app-routing.module';
+import { NavComponent } from './shared/nav/nav.component';
+import { ProductsModule } from '@itscode/products';
+import { UiModule } from '@itscode/ui';
 
-const routes: Routes = [
-    {
-        path: '',
-        component: HomePageComponent
-    },
-    {
-        path: 'products',
-        component: ProductListComponent
-    }
-];
+const UX_MODULES = [AccordionModule];
 
 @NgModule({
-    declarations: [AppComponent, HomePageComponent, ProductListComponent, HeaderComponent, FooterComponent],
-    imports: [BrowserModule, BrowserAnimationsModule, RouterModule.forRoot(routes), UiModule, AccordionModule],
+    declarations: [AppComponent, HomePageComponent, ProductListComponent, HeaderComponent, FooterComponent, NavComponent],
+    imports: [BrowserModule, BrowserAnimationsModule, AppRoutingModule, ...UX_MODULES, ProductsModule, UiModule],
     providers: [],
     bootstrap: [AppComponent]
 })

@@ -1,9 +1,7 @@
 # ui
 
-Contains the ui components
+This library was generated with [Nx](https://nx.dev).
 
-# Banner
+## Running unit tests
 
-# Slieder
-
-# Stepper
+Run `nx test ui` to execute the unit tests.

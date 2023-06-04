@@ -1,22 +1,22 @@
 {
     "name": "ui",
     "$schema": "../../node_modules/nx/schemas/project-schema.json",
-    "sourceRoot": "libs/ui/src",
     "projectType": "library",
+    "sourceRoot": "libs/ui/src",
+    "prefix": "itscode",
     "targets": {
-        "lint": {
-            "executor": "@nrwl/linter:eslint",
-            "outputs": ["{options.outputFile}"],
-            "options": {
-                "lintFilePatterns": ["libs/ui/**/*.ts"]
-            }
-        },
         "test": {
             "executor": "@nrwl/jest:jest",
             "outputs": ["coverage/libs/ui"],
             "options": {
                 "jestConfig": "libs/ui/jest.config.ts",
                 "passWithNoTests": true
+            }
+        },
+        "lint": {
+            "executor": "@nrwl/linter:eslint",
+            "options": {
+                "lintFilePatterns": ["libs/ui/**/*.ts", "libs/ui/**/*.html"]
             }
         }
     },

@@ -1,0 +1,29 @@
+header {
+    margin-bottom: 25px;
+    .logo {
+        img {
+            width: 160px;
+        }
+    }
+
+    .search {
+        padding-top: 25px;
+    }
+
+    .navigation {
+        padding-top: 35px;
+    }
+
+    .tools {
+        padding-top: 35px;
+
+        .pi:nth-child(1) {
+            margin-right: 10px;
+        }
+
+        & .pi:hover {
+            color: $primary-color;
+            cursor: pointer;
+        }
+    }
+}
