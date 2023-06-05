@@ -3,4 +3,5 @@ export class ICategory {
     name?: string;
     icon?: string;
     color?: string;
+    checked?: boolean;
 }

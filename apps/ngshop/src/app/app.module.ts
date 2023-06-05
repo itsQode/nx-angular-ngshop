@@ -6,7 +6,6 @@ import { AccordionModule } from 'primeng/accordion';
 
 import { AppComponent } from './app.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
-import { ProductListComponent } from './pages/product-list/product-list.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -17,7 +16,7 @@ import { UiModule } from '@itscode/ui';
 const UX_MODULES = [AccordionModule];
 
 @NgModule({
-    declarations: [AppComponent, HomePageComponent, ProductListComponent, HeaderComponent, FooterComponent, NavComponent],
+    declarations: [AppComponent, HomePageComponent, HeaderComponent, FooterComponent, NavComponent],
     imports: [BrowserModule, BrowserAnimationsModule, AppRoutingModule, ...UX_MODULES, ProductsModule, UiModule],
     providers: [],
     bootstrap: [AppComponent]
