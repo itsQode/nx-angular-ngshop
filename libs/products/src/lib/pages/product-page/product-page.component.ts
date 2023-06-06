@@ -3,6 +3,8 @@ import { IProduct } from '../../models/product';
 import { ProductsService } from '../../services/products.service';
 import { ActivatedRoute } from '@angular/router';
 import { take } from 'rxjs/operators';
+import { CartItem, CartService } from '@itscode/orders';
+import { MessageService } from 'primeng/api';
 
 @Component({
     selector: 'products-product-page',
@@ -12,9 +14,14 @@ import { take } from 'rxjs/operators';
 export class ProductPageComponent implements OnInit {
     product!: IProduct;
     currentId = '';
-    quantity = 0;
+    quantity = 1;
 
-    constructor(private productsService: ProductsService, private route: ActivatedRoute) {}
+    constructor(
+        private productsService: ProductsService,
+        private route: ActivatedRoute,
+        private cartService: CartService,
+        private messageService: MessageService
+    ) {}
 
     ngOnInit(): void {
         //id ? currentID = id : currentId = null
@@ -44,6 +51,12 @@ export class ProductPageComponent implements OnInit {
     }
 
     onAddProductToCart() {
-        console.log('object');
+        const cartItem: CartItem = {
+            productId: this.product.id,
+            quantity: this.quantity
+        };
+        this.cartService.setCartItem(cartItem);
+
+        this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Cart Updated!' });
     }
 }

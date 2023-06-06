@@ -12,12 +12,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { NavComponent } from './shared/nav/nav.component';
 import { ProductsModule } from '@itscode/products';
 import { UiModule } from '@itscode/ui';
+import { OrdersModule } from '@itscode/orders';
 
 const UX_MODULES = [AccordionModule];
 
 @NgModule({
     declarations: [AppComponent, HomePageComponent, HeaderComponent, FooterComponent, NavComponent],
-    imports: [BrowserModule, BrowserAnimationsModule, AppRoutingModule, ...UX_MODULES, ProductsModule, UiModule],
+    imports: [BrowserModule, BrowserAnimationsModule, AppRoutingModule, ...UX_MODULES, ProductsModule, UiModule, OrdersModule],
     providers: [],
     bootstrap: [AppComponent]
 })

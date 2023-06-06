@@ -8,8 +8,10 @@ import { ButtonModule } from 'primeng/button';
 import { CheckboxModule } from 'primeng/checkbox';
 import { RatingModule } from 'primeng/rating';
 import { InputNumberModule } from 'primeng/inputnumber';
+import { ToastModule } from 'primeng/toast';
+import { MessageService } from 'primeng/api';
 
-const UX_MODULES = [ButtonModule, CheckboxModule, RatingModule, InputNumberModule];
+const UX_MODULES = [ButtonModule, CheckboxModule, RatingModule, InputNumberModule, ToastModule];
 
 import { ProductsSearchComponent } from './components/products-search/products-search.component';
 import { CategoriesBannerComponent } from './components/categories-banner/categories-banner.component';
@@ -44,6 +46,7 @@ const routes: Route[] = [
         FeaturedProductsComponent,
         ProductsListComponent,
         ProductPageComponent
-    ]
+    ],
+    providers: [MessageService]
 })
 export class ProductsModule {}
