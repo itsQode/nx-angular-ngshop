@@ -12,6 +12,6 @@ export interface IOrder {
     phone?: string;
     status?: string;
     totalPrice?: number;
-    user?: IUser;
+    user?: any;
     dateOrdered?: string;
 }

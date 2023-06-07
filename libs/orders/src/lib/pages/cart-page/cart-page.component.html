@@ -17,13 +17,14 @@
                         <div class="cart-item-name">{{ cartItem.product.name }}</div>
                         <div class="cart-item-price">{{ cartItem.product.price | currency }}</div>
                         <div class="cart-item-remove">
-                            <p-button icon="pi pi-trash" (onClick)="onDeleteCartItem()"></p-button>
+                            <p-button icon="pi pi-trash" (onClick)="onDeleteCartItem(cartItem)"></p-button>
                         </div>
                     </div>
                     <div class="col-3">
                         <div class="field cart-item-quantity">
                             <label for="{{ cartItem.product.id }}">Quantity</label>
                             <p-inputNumber
+                                (onInput)="onUpdateCartItemQuantity(cartItem, $event)"
                                 [(ngModel)]="cartItem.quantity"
                                 mode="decimal"
                                 [showButtons]="true"
@@ -41,6 +42,8 @@
                 </div>
             </div>
         </div>
-        <div class="col-4">Order Summuray</div>
+        <div class="col-4">
+            <orders-order-summary></orders-order-summary>
+        </div>
     </div>
 </div>

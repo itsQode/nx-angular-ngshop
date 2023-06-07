@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IOrder, OrdersService } from '@itscode/orders';
-import { IOrderStatus, ORDER_STATUS } from '../orders-constants';
+import { IOrder, OrdersService, IOrderStatus, ORDER_STATUS } from '@itscode/orders';
 
 @Component({
     selector: 'admin-orders-list',

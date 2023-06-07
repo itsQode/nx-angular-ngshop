@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { IOrder, OrdersService } from '@itscode/orders';
+import { IOrder, OrdersService, ORDER_STATUS } from '@itscode/orders';
 import { take } from 'rxjs';
-import { ORDER_STATUS } from '../orders-constants';
 import { MessageService } from 'primeng/api';
 
 interface IOrderStatus {
