@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
 
 import { TagModule } from 'primeng/tag';
 import { CardModule } from 'primeng/card';
@@ -72,7 +73,18 @@ import { AppRoutingModule } from './app-routing.module';
         OrdersListComponent,
         OrdersDetailComponent
     ],
-    imports: [AppRoutingModule, BrowserModule, BrowserAnimationsModule, HttpClientModule, FormsModule, ReactiveFormsModule, UsersModule, ...UX_MODULE],
+    imports: [
+        AppRoutingModule,
+        BrowserModule,
+        BrowserAnimationsModule,
+        HttpClientModule,
+        FormsModule,
+        ReactiveFormsModule,
+        UsersModule,
+        StoreModule.forRoot({}),
+        EffectsModule.forRoot([]),
+        ...UX_MODULE
+    ],
     providers: [MessageService, ConfirmationService, { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }],
     bootstrap: [AppComponent]
 })

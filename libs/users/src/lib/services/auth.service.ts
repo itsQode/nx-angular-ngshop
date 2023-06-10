@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { environment } from '@env/environment';
-import { IRestPayload } from '@itscode/products';
+import { IRestPayload } from '../interfaces/rest-payload.interface';
 import { IAuth } from '../models/auth';
 import { LocalstorageService } from './localstorage.service';
 import { Router } from '@angular/router';

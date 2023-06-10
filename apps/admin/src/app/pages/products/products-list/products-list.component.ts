@@ -40,7 +40,6 @@ export class ProductsListComponent implements OnInit {
         this.router.navigateByUrl(`products/form/${productId}`);
     }
     onDeleteProducts(productId: string) {
-        console.log(productId);
         this.confirmationService.confirm({
             message: 'Do you want to delete this category?',
             header: 'Delete Category',

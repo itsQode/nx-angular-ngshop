@@ -44,7 +44,6 @@ export class ProductPageComponent implements OnInit {
                 next: (res) => {
                     if (res.body) {
                         this.product = res.body;
-                        console.log(res.body);
                     }
                 }
             });

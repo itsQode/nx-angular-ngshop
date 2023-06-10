@@ -13,13 +13,28 @@ import { NavComponent } from './shared/nav/nav.component';
 import { ProductsModule } from '@itscode/products';
 import { UiModule } from '@itscode/ui';
 import { OrdersModule } from '@itscode/orders';
+import { JwtInterceptor, UsersModule } from '@itscode/users';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 const UX_MODULES = [AccordionModule];
 
 @NgModule({
     declarations: [AppComponent, HomePageComponent, HeaderComponent, FooterComponent, NavComponent],
-    imports: [BrowserModule, BrowserAnimationsModule, AppRoutingModule, ...UX_MODULES, ProductsModule, UiModule, OrdersModule],
-    providers: [],
+    imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
+        AppRoutingModule,
+        StoreModule.forRoot({}),
+        EffectsModule.forRoot([]),
+        ...UX_MODULES,
+        ProductsModule,
+        UiModule,
+        OrdersModule,
+        UsersModule
+    ],
+    providers: [{ provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }],
     bootstrap: [AppComponent]
 })
 export class AppModule {}

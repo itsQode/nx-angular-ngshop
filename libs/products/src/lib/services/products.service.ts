@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
 
 import { environment } from '@env/environment';
 import { IRestPayload } from '../interfaces/rest-payload.interface';
@@ -36,6 +36,15 @@ export class ProductsService {
 
     public deleteProduct(productId: string): Observable<IRestPayload<string>> {
         return this.http.delete<IRestPayload<string>>(`${this.apiURLProducts}${productId}`);
+    }
+
+    getProductsCount(): Observable<number> {
+        return this.http.get<IRestPayload<number>>(`${this.apiURLProducts}get/count`).pipe(
+            map((res) => {
+                if (res.body) return res.body;
+                else return 0;
+            })
+        );
     }
 
     public getFeaturedProducts(count: number): Observable<IRestPayload<{ products: IProduct[] }>> {
