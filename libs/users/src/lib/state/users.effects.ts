@@ -1,10 +1,8 @@
 import { Injectable } from '@angular/core';
 import { createEffect, Actions, ofType } from '@ngrx/effects';
-import { fetch } from '@nrwl/angular';
 
 import * as UsersActions from './users.actions';
-import * as UsersFeature from './users.reducer';
-import { catchError, concatMap, map, tap } from 'rxjs/operators';
+import { catchError, concatMap, map } from 'rxjs/operators';
 import { LocalstorageService } from '../services/localstorage.service';
 import { of } from 'rxjs';
 import { UsersService } from '../services/users.service';

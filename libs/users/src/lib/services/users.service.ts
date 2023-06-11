@@ -37,7 +37,7 @@ export class UsersService {
 
     getUsersCount(): Observable<number> {
         return this.http.get<IRestPayload<number>>(`${this.apiURLUsers}get/count`).pipe(
-            map((res: any) => {
+            map((res) => {
                 if (res.body) return res.body;
                 else return 0;
             })

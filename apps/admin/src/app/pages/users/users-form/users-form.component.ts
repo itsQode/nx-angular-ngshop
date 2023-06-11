@@ -9,6 +9,7 @@ import * as countriesLib from 'i18n-iso-countries';
 
 import { IUser, UsersService } from '@itscode/users';
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 declare const require: any;
 
 @Component({
@@ -21,7 +22,7 @@ export class UsersFormComponent implements OnInit {
     form!: FormGroup;
     isSubmited = false;
     currentUserId = '';
-    countries: any[] = [];
+    countries: unknown[] = [];
 
     constructor(
         private formBuilder: FormBuilder,

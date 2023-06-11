@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { OrdersService } from '@itscode/orders';
 import { ProductsService } from '@itscode/products';
 import { UsersService } from '@itscode/users';
@@ -8,9 +8,9 @@ import { Subject, catchError, combineLatest, of, takeUntil } from 'rxjs';
     selector: 'admin-dashboard',
     templateUrl: './dashboard.component.html'
 })
-export class DashboardComponent implements OnInit {
-    statistics: any[] = [];
-    endsubs$: Subject<any> = new Subject();
+export class DashboardComponent implements OnInit, OnDestroy {
+    statistics: unknown[] = [];
+    endsubs$ = new Subject();
 
     constructor(private userService: UsersService, private productService: ProductsService, private ordersService: OrdersService) {}
 

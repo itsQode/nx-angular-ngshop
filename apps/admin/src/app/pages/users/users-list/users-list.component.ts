@@ -8,6 +8,7 @@ import * as countriesLib from 'i18n-iso-countries';
 import { UsersService } from '@itscode/users';
 import { IUser } from '@itscode/users';
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 declare const require: any;
 
 @Component({

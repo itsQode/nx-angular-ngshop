@@ -1,4 +1,3 @@
-import { IUser } from '@itscode/users';
 import { IOrderItem } from './order-item';
 
 export interface IOrder {

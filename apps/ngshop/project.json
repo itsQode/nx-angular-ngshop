@@ -71,14 +71,14 @@
             }
         },
         "lint": {
-            "executor": "@nrwl/linter:eslint",
+            "executor": "@nx/linter:eslint",
             "options": {
                 "lintFilePatterns": ["apps/ngshop/**/*.ts", "apps/ngshop/**/*.html"]
             }
         },
         "test": {
-            "executor": "@nrwl/jest:jest",
-            "outputs": ["coverage/apps/ngshop"],
+            "executor": "@nx/jest:jest",
+            "outputs": ["{workspaceRoot}/coverage/apps/ngshop"],
             "options": {
                 "jestConfig": "apps/ngshop/jest.config.ts",
                 "passWithNoTests": true
