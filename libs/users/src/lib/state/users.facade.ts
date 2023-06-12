@@ -14,4 +14,8 @@ export class UsersFacade {
     buildUserSession() {
         this.store.dispatch(UsersActions.buildUserSession());
     }
+
+    logOut() {
+        this.store.dispatch(UsersActions.buildUserSessionFailed());
+    }
 }

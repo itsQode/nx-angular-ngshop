@@ -15,7 +15,7 @@
 
 //Pages
 @import './apps/ngshop/pages/home-page.scss';
-@import './apps/ngshop/pages/products-list-page.scss';
+@import './apps/ngshop/pages/products-page.scss';
 
 //Shared
 @import './apps/ngshop/shared/header.scss';
@@ -33,4 +33,6 @@
     padding: 15px;
     margin: 0 auto;
     background-color: var(--surface-100);
+    min-height: 1100px;
+    position: relative;
 }

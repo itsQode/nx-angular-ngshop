@@ -1,7 +1,7 @@
 <div class="categories-banner">
     <h3>Categories</h3>
     <div class="grid">
-        <div class="col-2" *ngFor="let category of categoreis">
+        <div class="col-12 sm:col-6 md:col-4 lg:col-2" *ngFor="let category of categoreis">
             <div class="category" [routerLink]="'/category/' + category.id" [style.backgroundColor]="category.color">
                 <div class="category-icon"><i class="pi pi-{{ category.icon }}"></i></div>
                 <div class="category-name">{{ category.name }}</div>

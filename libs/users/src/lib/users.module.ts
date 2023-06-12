@@ -14,13 +14,15 @@ import { EffectsModule } from '@ngrx/effects';
 import * as fromUsers from './state/users.reducer';
 import { UsersEffects } from './state/users.effects';
 import { UsersFacade } from './state/users.facade';
+import { LoginGuard } from './services/login.guard';
 
 const UX_MODULES = [InputTextModule, ButtonModule, ToastModule];
 
 const routes: Route[] = [
     {
         path: 'login',
-        component: LoginComponent
+        component: LoginComponent,
+        canActivate: [LoginGuard]
     }
 ];
 

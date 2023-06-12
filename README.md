@@ -1,5 +1,14 @@
-# Itscode
+# ngshop
 
-Angular ngShop
+## NX-Angular Front for _Admin panel , Client panel_
 
-<p style="text-align: center;"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="450"></p>
+# Tech
+
+-   NX monorepo
+-   Sass styles
+-   PrimeNg components styles
+-   Semi _Responsive_
+-   apps-libs approach
+-   Rxjs,Ngrx State Management
+-   JWT
+-   Rest Api

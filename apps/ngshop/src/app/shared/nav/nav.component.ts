@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService, LocalstorageService, UsersService } from '@itscode/users';
 
 @Component({
     selector: 'ngshop-nav',
@@ -6,7 +7,17 @@ import { Component, OnInit } from '@angular/core';
     styles: []
 })
 export class NavComponent implements OnInit {
-    constructor() {}
+    isLogedIn = false;
 
-    ngOnInit(): void {}
+    constructor(private authService: AuthService, private usersService: UsersService) {}
+
+    ngOnInit(): void {
+        this.usersService.observeCurrentUser().subscribe((user) => {
+            this.isLogedIn = !!user;
+        });
+    }
+
+    onLogOut() {
+        this.authService.logout();
+    }
 }

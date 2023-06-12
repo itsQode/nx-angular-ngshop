@@ -9,7 +9,7 @@ import { Subject, catchError, combineLatest, of, takeUntil } from 'rxjs';
     templateUrl: './dashboard.component.html'
 })
 export class DashboardComponent implements OnInit, OnDestroy {
-    statistics: unknown[] = [];
+    statistics: any[] = [];
     endsubs$ = new Subject();
 
     constructor(private userService: UsersService, private productService: ProductsService, private ordersService: OrdersService) {}

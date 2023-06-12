@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AuthService } from '../../services/auth.service';
-import { MessageService } from 'primeng/api';
 import { HttpErrorResponse } from '@angular/common/http';
-import { LocalstorageService } from '../../services/localstorage.service';
 import { Router } from '@angular/router';
+
+import { AuthService } from '../../services/auth.service';
+import { LocalstorageService } from '../../services/localstorage.service';
+import { UsersService } from '../../services/users.service';
 
 @Component({
     selector: 'users-login',
@@ -20,7 +21,7 @@ export class LoginComponent implements OnInit {
     constructor(
         private formBuilder: FormBuilder,
         private authService: AuthService,
-        private messageService: MessageService,
+        private usersService: UsersService,
         private localStorageService: LocalstorageService,
         private router: Router
     ) {}
@@ -49,6 +50,7 @@ export class LoginComponent implements OnInit {
             next: (res) => {
                 this.authError = false;
                 if (res.body) this.localStorageService.setToken(res.body.token);
+                this.usersService.initAppSession();
                 this.router.navigate(['/']);
             },
             error: (res: HttpErrorResponse) => {

@@ -3,5 +3,7 @@
         <li><a routerLink="/">Home</a></li>
         <li><a routerLink="/products">Products</a></li>
         <li><a routerLink="/contact">Contact</a></li>
+        <li><a (click)="onLogOut()" *ngIf="isLogedIn">Logout</a></li>
+        <li><a routerLink="/login" *ngIf="!isLogedIn">Login</a></li>
     </ul>
 </nav>
