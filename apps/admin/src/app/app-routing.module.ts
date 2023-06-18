@@ -73,7 +73,7 @@ const routes: Routes = [
     {
         path: '**',
         pathMatch: 'full',
-        redirectTo: ''
+        redirectTo: 'login'
     }
 ];
 
